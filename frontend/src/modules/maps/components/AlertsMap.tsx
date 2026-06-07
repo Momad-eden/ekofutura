@@ -16,9 +16,13 @@ import "leaflet-defaulticon-compatibility";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 
 import { getAlerts } from "../services/maps.service";
+import { Alert } from "../types/alert";
 
 export default function AlertsMap() {
-  const [alerts, setAlerts] = useState<any[]>([]);
+  
+
+  const [alerts, setAlerts] =
+    useState<Alert[]>([]);
 
   useEffect(() => {
     loadAlerts();
