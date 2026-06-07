@@ -1,0 +1,43 @@
+# Python
+backend/venv/
+backend/__pycache__/
+backend/db.sqlite3
+*.pyc
+
+# Variables d'environnement
+backend/.env
+
+# Django media
+backend/media/
+
+# Node.js
+frontend/node_modules/
+frontend/.next/
+
+# Logs
+*.log
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+
+# Python
+*.pyo
+*.pyd
+__pycache__/
+
+# Django
+staticfiles/
+
+# Environnements virtuels
+venv/
+.env
+
+# Next.js
+.next/
+out/
+
+# IDE
+.idea/
