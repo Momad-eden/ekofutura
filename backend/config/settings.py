@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     "maps",
     "alerts",
     "partners",
+    "dashboard",
 ]
 
 MIDDLEWARE = [

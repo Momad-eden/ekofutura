@@ -1,10 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
+
 import { getAlerts } from "@/services/alerts.service";
 
+import AlertCard from "./AlertCard";
+
+import { Alert } from "../types/alert";
+
 export default function AlertsList() {
-  const [alerts, setAlerts] = useState([]);
+  const [alerts, setAlerts] = useState<Alert[]>([]);
+
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     loadAlerts();
@@ -16,32 +23,48 @@ export default function AlertsList() {
       setAlerts(data);
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(false);
     }
   }
 
+  if (loading) {
+    return (
+      <div className="text-center py-12">
+        Chargement des alertes...
+      </div>
+    );
+  }
+
+  if (alerts.length === 0) {
+    return (
+      <div
+        className="
+          text-center
+          py-12
+          bg-slate-800
+          rounded-xl
+        "
+      >
+        Aucune alerte validée pour le moment.
+      </div>
+    );
+  }
+
   return (
-    <div>
-      <h2>Alertes environnementales</h2>
-
-      {alerts.map((alert: any) => (
-        <div
+    <div
+      className="
+        grid
+        md:grid-cols-2
+        lg:grid-cols-3
+        gap-6
+      "
+    >
+      {alerts.map((alert) => (
+        <AlertCard
           key={alert.id}
-          className="border p-4 rounded mb-4"
-        >
-          <h3>{alert.category}</h3>
-
-          <p>{alert.description}</p>
-
-          <small>
-            Latitude : {alert.latitude}
-          </small>
-
-          <br />
-
-          <small>
-            Longitude : {alert.longitude}
-          </small>
-        </div>
+          alert={alert}
+        />
       ))}
     </div>
   );

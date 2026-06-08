@@ -29,7 +29,17 @@ urlpatterns = [
     path(
     "api/alerts/",
     include("alerts.urls")
-),
+    ),
+    path(
+    "api/dashboard/",
+    include("dashboard.urls")
+    ),
+
+    path(
+    "api/partners/",
+    include("partners.urls")
+    ),
+
 ]
 
 if settings.DEBUG:
