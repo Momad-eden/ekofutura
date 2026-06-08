@@ -1,43 +1,116 @@
-# Python
-backend/venv/
-backend/__pycache__/
-backend/db.sqlite3
-*.pyc
+# Ignorer les fichiers temporaires et locaux
 
-# Variables d'environnement
-backend/.env
-
-# Django media
-backend/media/
-
-# Node.js
-frontend/node_modules/
-frontend/.next/
-
-# Logs
-*.log
-
-# VS Code
-.vscode/
-
-# OS
-.DS_Store
-
-# Python
-*.pyo
-*.pyd
+## Environnement Python
 __pycache__/
-
-# Django
-staticfiles/
-
-# Environnements virtuels
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
 venv/
-.env
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
-# Next.js
+## Environnement virtuel
+.venv
+*.venv
+
+## IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+## Node.js (Frontend)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.eslintcache
+.node_repl_history
+*.tgz
+.yarn-integrity
+.env.local
+.env.*.local
+
+## Next.js
 .next/
 out/
+*.pem
+.vercel
+.turbo
 
-# IDE
+## Testing
+.coverage
+.pytest_cache/
+.tox/
+htmlcov/
+.hypothesis/
+
+## Environment variables
+.env
+.env.local
+.env.*.local
+.env.production.local
+
+## Database
+*.db
+*.sqlite
+*.sqlite3
+dump.rdb
+
+## Logs
+logs/
+*.log
+npm-debug.log*
+
+## OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+## IDE files
+*.iml
+.gradle
 .idea/
+*.iws
+*.ipr
+*.rej
+
+## Docker
+.dockerignore
+
+## Build outputs
+dist/
+build/
+.Next/
+.vuepress/dist/
+
+## Misc
+*.bak
+*.tmp
+*~
+.cache/
