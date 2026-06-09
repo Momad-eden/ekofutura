@@ -40,6 +40,11 @@ urlpatterns = [
     include("partners.urls")
     ),
 
+    path(
+    "api/contact/",
+    include("contact.urls")
+    ),
+
 ]
 
 if settings.DEBUG:

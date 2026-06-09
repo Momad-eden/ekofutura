@@ -19,31 +19,26 @@ export default function Hero() {
 
         <div className="max-w-4xl">
 
-          <div className="flex items-center gap-4 mb-8">
 
-            <Image
-              src="/logo.png"
-              alt="EKOFUTURA"
-              width={90}
-              height={90}
-              priority
-            />
+          <p
+            className="
+              inline-flex
+              items-center
+              bg-yellow-500
+              text-black
+              font-semibold
+              px-5
+              py-2
+              rounded-full
+            "
+          >
+            Veille environnementale citoyenne
+          </p>
 
-            <div>
 
-              <p className="text-green-400 uppercase tracking-[0.3em] font-semibold">
-                EKOFUTURA
-              </p>
+          
 
-              <p className="text-slate-300">
-                Veille environnementale citoyenne
-              </p>
-
-            </div>
-
-          </div>
-
-          <h1 className="mt-6 text-6xl md:text-7xl font-black leading-tight">
+          <h1 className="mt-6 text-4xl sm:text-5xl lg:text-7xl font-black leading-tight">
 
             Protégeons aujourd'hui
 
@@ -53,13 +48,20 @@ export default function Hero() {
 
           </h1>
 
-          <p className="mt-8 text-xl text-slate-300 max-w-2xl">
+          <p
+            className="
+              mt-8
+              text-lg
+              md:text-xl
+              text-slate-300
+              max-w-2xl
+            "
+          >
 
-            Une plateforme citoyenne
-            dédiée à la surveillance
-            environnementale, à la lutte
-            contre la pollution plastique
-            et au suivi de l'érosion côtière.
+             Une plateforme citoyenne dédiée à la
+            protection de l'environnement, à la
+            sensibilisation écologique et à la
+            promotion du développement durable.
 
           </p>
 
@@ -74,7 +76,7 @@ export default function Hero() {
 
             <Link
               href="/map"
-              className="border border-slate-600 px-6 py-3 rounded-xl"
+              className="border border-green-700 text-green-700 hover:bg-green-700 hover:text-white px-6 py-3 rounded-xl"
             >
               Voir la carte
             </Link>

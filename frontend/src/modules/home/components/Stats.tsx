@@ -2,11 +2,43 @@
 
 import { useEffect, useState } from "react";
 
-import { getStats }
-from "../services/stats.service";
+import {
+  ShieldCheck,
+  Clock3,
+  Camera,
+  Newspaper,
+} from "lucide-react";
+
+import { getStats } from "../services/stats.service";
+
+const cards = [
+  {
+    key: "validated_alerts",
+    label: "Alertes validées",
+    icon: ShieldCheck,
+    color: "text-green-500",
+  },
+  {
+    key: "pending_alerts",
+    label: "En attente",
+    icon: Clock3,
+    color: "text-yellow-500",
+  },
+  {
+    key: "alerts_with_photo",
+    label: "Photos reçues",
+    icon: Camera,
+    color: "text-blue-500",
+  },
+  {
+    key: "published_news",
+    label: "Actualités publiées",
+    icon: Newspaper,
+    color: "text-purple-500",
+  },
+];
 
 export default function Stats() {
-
   const [stats, setStats] =
     useState<any>(null);
 
@@ -16,12 +48,10 @@ export default function Stats() {
 
   async function loadStats() {
     try {
-
       const data =
         await getStats();
 
       setStats(data);
-
     } catch (error) {
       console.error(error);
     }
@@ -34,11 +64,12 @@ export default function Stats() {
   return (
     <section className="py-20">
 
-      <div className="text-center mb-12">
+      <div className="text-center mb-14">
 
         <h2
           className="
-            text-4xl
+            text-3xl
+            md:text-4xl
             font-bold
             mb-4
           "
@@ -47,7 +78,7 @@ export default function Stats() {
         </h2>
 
         <p className="text-slate-400">
-          Données actualisées en temps réel
+          Données mises à jour en temps réel
         </p>
 
       </div>
@@ -56,87 +87,58 @@ export default function Stats() {
         className="
           grid
           grid-cols-2
-          md:grid-cols-4
+          lg:grid-cols-4
           gap-6
         "
       >
+        {cards.map((card) => {
+          const Icon =
+            card.icon;
 
-        <div
-          className="
-            bg-slate-800
-            p-8
-            rounded-2xl
-            text-center
-            border
-            border-slate-700
-          "
-        >
-          <h3 className="text-5xl font-bold text-green-400">
-            {stats.validated_alerts}
-          </h3>
+          return (
+            <div
+              key={card.key}
+              className="
+                bg-card
+                border
+                border-custom
+                rounded-2xl
+                p-6
+                text-center
+                hover:-translate-y-1
+                transition
+              "
+            >
+              <Icon
+                size={36}
+                className={`
+                  mx-auto
+                  mb-4
+                  ${card.color}
+                `}
+              />
 
-          <p className="mt-3">
-            Alertes validées
-          </p>
-        </div>
+              <h3
+                className="
+                  text-4xl
+                  md:text-5xl
+                  font-black
+                  mb-2
+                "
+              >
+                {
+                  stats[
+                    card.key
+                  ]
+                }
+              </h3>
 
-        <div
-          className="
-            bg-slate-800
-            p-8
-            rounded-2xl
-            text-center
-            border
-            border-slate-700
-          "
-        >
-          <h3 className="text-5xl font-bold text-blue-400">
-            {stats.pending_alerts}
-          </h3>
-
-          <p className="mt-3">
-            En attente
-          </p>
-        </div>
-
-        <div
-          className="
-            bg-slate-800
-            p-8
-            rounded-2xl
-            text-center
-            border
-            border-slate-700
-          "
-        >
-          <h3 className="text-5xl font-bold text-yellow-400">
-            {stats.alerts_with_photo}
-          </h3>
-
-          <p className="mt-3">
-            Photos reçues
-          </p>
-        </div>
-
-        <div
-          className="
-            bg-slate-800
-            p-8
-            rounded-2xl
-            text-center
-            border
-            border-slate-700
-          "
-        >
-          <h3 className="text-5xl font-bold text-purple-400">
-            {stats.published_news}
-          </h3>
-
-          <p className="mt-3">
-            Actualités
-          </p>
-        </div>
-
+              <p className="text-slate-400">
+                {card.label}
+              </p>
+            </div>
+          );
+        })}
       </div>
 
     </section>

@@ -6,6 +6,8 @@ import "./globals.css";
 import Navbar from "@/modules/shared/components/Navbar";
 import Footer from "@/modules/shared/components/Footer";
 
+import ThemeProvider from "@/modules/shared/providers/ThemeProvider";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -36,18 +38,30 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
+      suppressHydrationWarning
       data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <body className="min-h-screen flex flex-col">
+      <body
+        className="
+            min-h-screen
+            flex
+            flex-col
+            bg-background
+            text-foreground
+            transition-colors
+          "
+      >
+        <ThemeProvider>
 
-        <Navbar />
+          <Navbar />
 
-        <main className="flex-1">
-          {children}
-        </main>
+          <main className="flex-1">
+            {children}
+          </main>
 
-        <Footer />
+          <Footer />
+       </ThemeProvider>
 
       </body>
     </html>

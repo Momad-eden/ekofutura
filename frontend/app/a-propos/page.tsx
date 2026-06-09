@@ -1,72 +1,201 @@
+import Link from "next/link";
+
 export default function AboutPage() {
   return (
-    <main className="container mx-auto px-6 py-16">
+    <main className="container mx-auto px-4 md:px-6 py-16">
 
-      <section className="max-w-4xl mx-auto">
+      {/* Hero */}
 
-        <h1 className="text-5xl font-bold mb-8 text-center">
+      <section className="max-w-4xl mx-auto text-center mb-20">
+
+        <div
+          className="
+            inline-flex
+            px-4
+            py-2
+            rounded-full
+            bg-green-600/20
+            text-green-500
+            font-medium
+            mb-6
+          "
+        >
           À propos d'EKOFUTURA
+        </div>
+
+        <h1
+          className="
+            text-4xl
+            md:text-6xl
+            font-black
+            mb-8
+          "
+        >
+          Construire un avenir
+          <span className="block text-green-500">
+            plus durable pour le Sénégal
+          </span>
         </h1>
 
-        <p className="text-xl text-slate-300 text-center mb-16">
-          Une plateforme citoyenne dédiée à la protection
-          de l'environnement au Sénégal.
+        <p
+          className="
+            text-lg
+            md:text-xl
+            text-slate-400
+            leading-8
+          "
+        >
+          Une plateforme citoyenne dédiée à la
+          protection de l'environnement, à la
+          sensibilisation écologique et à la
+          promotion du développement durable.
         </p>
 
       </section>
 
+      {/* Qui sommes-nous */}
+
       <section className="max-w-5xl mx-auto mb-20">
 
-        <h2 className="text-3xl font-bold mb-6">
+        <h2 className="text-3xl font-bold mb-8">
           Qui sommes-nous ?
         </h2>
 
-        <p className="text-slate-300 leading-8">
-          EKOFUTURA est une initiative environnementale
-          qui vise à mobiliser les citoyens, les associations,
-          les collectivités et les partenaires autour de la
-          protection durable de notre environnement.
+        <div
+          className="
+            bg-card
+            border
+            border-custom
+            rounded-2xl
+            p-8
+          "
+        >
+          <p className="leading-8 text-lg">
 
-          Grâce aux technologies numériques, nous facilitons
-          le signalement, le suivi et la sensibilisation autour
-          des problématiques environnementales.
-        </p>
+            EKOFUTURA est une initiative citoyenne
+            sénégalaise dédiée à la protection de
+            l'environnement et à la promotion du
+            développement durable à travers la
+            communication numérique, la photographie,
+            la vidéo et les technologies web.
 
-      </section>
+            <br />
+            <br />
 
-      <section className="max-w-5xl mx-auto mb-20">
+            Notre mission est de rendre les enjeux
+            environnementaux accessibles,
+            compréhensibles et visibles pour tous.
 
-        <h2 className="text-3xl font-bold mb-6">
-          Notre mission
-        </h2>
+            <br />
+            <br />
 
-        <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700">
+            Nous mettons en lumière les réalités
+            écologiques qui touchent les populations
+            sénégalaises, notamment l'érosion côtière,
+            la pollution plastique, la dégradation des
+            écosystèmes et les conséquences du
+            changement climatique.
 
-          <p className="text-lg leading-8">
-            Permettre à chaque citoyen de contribuer
-            activement à la protection de l'environnement
-            grâce à une plateforme simple, accessible
-            et collaborative.
+            <br />
+            <br />
+
+            Grâce aux outils numériques, à la
+            documentation visuelle et à la
+            participation citoyenne, nous contribuons
+            à la construction d'un Sénégal plus
+            résilient et plus conscient de ses défis
+            environnementaux.
+
           </p>
-
         </div>
 
       </section>
 
+      {/* Mission */}
+
       <section className="max-w-5xl mx-auto mb-20">
 
-        <h2 className="text-3xl font-bold mb-6">
+        <h2 className="text-3xl font-bold mb-8">
+          Notre mission
+        </h2>
+
+        <div
+          className="
+            bg-card
+            border
+            border-custom
+            rounded-2xl
+            p-8
+          "
+        >
+          <ul
+            className="
+              space-y-4
+              text-lg
+              leading-8
+              list-disc
+              pl-6
+            "
+          >
+            <li>
+              Sensibiliser le public aux enjeux
+              environnementaux locaux et mondiaux.
+            </li>
+
+            <li>
+              Documenter les impacts de l'érosion
+              côtière et du changement climatique.
+            </li>
+
+            <li>
+              Valoriser les initiatives écologiques
+              et les solutions durables.
+            </li>
+
+            <li>
+              Utiliser les technologies numériques
+              au service de l'environnement.
+            </li>
+
+            <li>
+              Encourager l'engagement citoyen et la
+              participation des jeunes.
+            </li>
+          </ul>
+        </div>
+
+      </section>
+
+      {/* Vision */}
+
+      <section className="max-w-5xl mx-auto mb-20">
+
+        <h2 className="text-3xl font-bold mb-8">
           Notre vision
         </h2>
 
-        <p className="text-slate-300 leading-8">
-          Construire un Sénégal plus propre,
-          plus résilient et plus conscient des enjeux
-          environnementaux grâce à la participation citoyenne
-          et à l'innovation numérique.
-        </p>
+        <div
+          className="
+            bg-card
+            border
+            border-custom
+            rounded-2xl
+            p-8
+          "
+        >
+          <p className="text-lg leading-8">
+            Construire un Sénégal plus propre,
+            plus résilient et plus conscient des
+            enjeux environnementaux grâce à
+            l'engagement citoyen, à l'éducation
+            environnementale et à l'innovation
+            numérique.
+          </p>
+        </div>
 
       </section>
+
+      {/* Objectifs */}
 
       <section className="max-w-5xl mx-auto mb-20">
 
@@ -74,27 +203,36 @@ export default function AboutPage() {
           Nos objectifs
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div
+          className="
+            grid
+            grid-cols-1
+            md:grid-cols-2
+            gap-6
+          "
+        >
 
-          <div className="bg-slate-800 p-6 rounded-xl">
-            ♻️ Lutter contre la pollution
+          <div className="bg-card border border-custom p-6 rounded-2xl">
+            Lutter contre la pollution plastique
           </div>
 
-          <div className="bg-slate-800 p-6 rounded-xl">
-            🌊 Préserver le littoral
+          <div className="bg-card border border-custom p-6 rounded-2xl">
+            Préserver le littoral sénégalais
           </div>
 
-          <div className="bg-slate-800 p-6 rounded-xl">
-            📢 Sensibiliser les populations
+          <div className="bg-card border border-custom p-6 rounded-2xl">
+            Sensibiliser les populations
           </div>
 
-          <div className="bg-slate-800 p-6 rounded-xl">
-            🤝 Renforcer l'engagement citoyen
+          <div className="bg-card border border-custom p-6 rounded-2xl">
+            Renforcer l'engagement citoyen
           </div>
 
         </div>
 
       </section>
+
+      {/* Valeurs */}
 
       <section className="max-w-5xl mx-auto mb-20">
 
@@ -102,57 +240,130 @@ export default function AboutPage() {
           Nos valeurs
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div
+          className="
+            grid
+            grid-cols-1
+            md:grid-cols-2
+            lg:grid-cols-3
+            gap-6
+          "
+        >
 
-          <div className="bg-slate-800 p-6 rounded-xl">
-            Transparence
+          <div className="bg-card border border-custom p-6 rounded-2xl">
+            <h3 className="font-bold text-green-500 mb-4">
+              Responsabilité
+            </h3>
+
+            <p>
+              La protection de l'environnement est
+              une responsabilité collective.
+            </p>
           </div>
 
-          <div className="bg-slate-800 p-6 rounded-xl">
-            Engagement
+          <div className="bg-card border border-custom p-6 rounded-2xl">
+            <h3 className="font-bold text-green-500 mb-4">
+              Vérité
+            </h3>
+
+            <p>
+              Produire des contenus fondés sur des
+              faits vérifiés et des observations de
+              terrain.
+            </p>
           </div>
 
-          <div className="bg-slate-800 p-6 rounded-xl">
-            Innovation
+          <div className="bg-card border border-custom p-6 rounded-2xl">
+            <h3 className="font-bold text-green-500 mb-4">
+              Innovation
+            </h3>
+
+            <p>
+              Utiliser les technologies numériques
+              pour informer, mobiliser et agir.
+            </p>
+          </div>
+
+          <div className="bg-card border border-custom p-6 rounded-2xl">
+            <h3 className="font-bold text-green-500 mb-4">
+              Engagement
+            </h3>
+
+            <p>
+              Transformer la sensibilisation en
+              actions concrètes.
+            </p>
+          </div>
+
+          <div className="bg-card border border-custom p-6 rounded-2xl">
+            <h3 className="font-bold text-green-500 mb-4">
+              Espoir
+            </h3>
+
+            <p>
+              Construire un avenir durable grâce à
+              l'implication de tous.
+            </p>
           </div>
 
         </div>
 
       </section>
 
+      {/* CTA */}
+
       <section
         className="
-          text-center
-          bg-green-700
-          rounded-2xl
-          p-12
           max-w-5xl
           mx-auto
+          text-center
+          bg-green-600
+          rounded-3xl
+          p-10
+          md:p-14
         "
       >
 
-        <h2 className="text-4xl font-bold mb-4">
+        <h2
+          className="
+            text-3xl
+            md:text-5xl
+            font-black
+            mb-6
+            text-white
+          "
+        >
           Rejoignez le mouvement
         </h2>
 
-        <p className="mb-8">
-          Ensemble, construisons un avenir plus durable.
+        <p
+          className="
+            text-white/90
+            mb-8
+            text-lg
+          "
+        >
+          Ensemble, protégeons les écosystèmes
+          sénégalais et construisons un avenir
+          plus durable.
         </p>
 
-        <a
+        <Link
           href="/signaler"
           className="
-            inline-block
+            inline-flex
             bg-white
             text-green-700
             px-8
             py-4
             rounded-xl
             font-semibold
+            hover:scale-105
+            transition
           "
         >
           Signaler un problème
-        </a>
+        </Link>
 
       </section>
 

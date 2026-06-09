@@ -1,17 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0f172a;
+  --background: #ffffff;
+  --foreground: #0f172a;
+
+  --card: #f8fafc;
+  --border: #e2e8f0;
+
+  --primary: #16a34a;
+  --primary-dark: #15803d;
+}
+
+.dark {
+  --background: #020617;
   --foreground: #f8fafc;
+
+  --card: #1e293b;
+  --border: #334155;
 
   --primary: #16a34a;
   --primary-dark: #14532d;
-
-  --ocean: #0ea5e9;
-
-  --card: #1e293b;
-
-  --border: #334155;
 }
 
 @theme inline {
@@ -106,3 +114,20 @@ section {
 
   text-align: center;
 }
+
+.bg-background {
+  background: var(--background);
+}
+
+.text-foreground {
+  color: var(--foreground);
+}
+
+.bg-card {
+  background: var(--card);
+}
+
+.border-custom {
+  border-color: var(--border);
+}
+

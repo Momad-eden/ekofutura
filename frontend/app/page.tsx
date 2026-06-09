@@ -3,8 +3,8 @@ import Mission from "@/modules/home/components/Mission";
 import Stats from "@/modules/home/components/Stats";
 import LatestAlerts from "@/modules/home/components/LatestAlerts";
 import Actions from "@/modules/home/components/Actions";
-import Impact from
-"@/modules/home/components/Impact";
+import Impact from"@/modules/home/components/Impact";
+import Features from "@/modules/home/components/Features";
 
 export default function HomePage() {
   return (
@@ -20,6 +20,8 @@ export default function HomePage() {
       <LatestAlerts />
 
       <Actions />
+
+      <Features />
     </>
   );
 }

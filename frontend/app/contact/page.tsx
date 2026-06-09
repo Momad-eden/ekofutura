@@ -1,3 +1,4 @@
+import ContactForm from "@/modules/contact/components/ContactForm";
 export default function ContactPage() {
   return (
     <main className="container mx-auto px-6 py-16">
@@ -69,7 +70,7 @@ export default function ContactPage() {
         <div className="mt-10 rounded-2xl overflow-hidden">
 
             <iframe
-                src="https://www.openstreetmap.org/export/embed.html?bbox=-16.95%2C14.75%2C-16.90%2C14.82&layer=mapnik"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-17.47,14.74,-17.43,14.78&layer=mapnik"
                 width="100%"
                 height="300"
                 loading="lazy"
@@ -91,63 +92,7 @@ export default function ContactPage() {
             Envoyer un message
           </h2>
 
-          <form className="space-y-4">
-
-            <input
-              type="text"
-              placeholder="Nom complet"
-              className="
-                w-full
-                p-4
-                rounded-xl
-                bg-slate-900
-                border
-                border-slate-700
-              "
-            />
-
-            <input
-              type="email"
-              placeholder="Adresse email"
-              className="
-                w-full
-                p-4
-                rounded-xl
-                bg-slate-900
-                border
-                border-slate-700
-              "
-            />
-
-            <textarea
-              rows={6}
-              placeholder="Votre message..."
-              className="
-                w-full
-                p-4
-                rounded-xl
-                bg-slate-900
-                border
-                border-slate-700
-              "
-            />
-
-            <button
-              type="submit"
-              className="
-                w-full
-                bg-green-600
-                hover:bg-green-700
-                py-4
-                rounded-xl
-                font-semibold
-                transition
-              "
-            >
-              Envoyer le message
-            </button>
-
-          </form>
+          <ContactForm />
 
         </div>
 
