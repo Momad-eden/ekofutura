@@ -1,5 +1,4 @@
-import AlertsList
-from "@/modules/alerts/components/AlertsList";
+import AlertsList from "@/modules/alerts/components/AlertsList";
 
 export default function AlertsPage() {
   return (
@@ -7,20 +6,63 @@ export default function AlertsPage() {
       className="
         container
         mx-auto
-        px-6
+        px-4
+        md:px-6
         py-12
       "
     >
-      <h1
+      <div
         className="
-          text-4xl
-          font-bold
-          mb-10
+          max-w-4xl
+          mx-auto
           text-center
+          mb-14
         "
       >
-        Alertes validées
-      </h1>
+        <div
+          className="
+            inline-flex
+            px-4
+            py-2
+            rounded-full
+            bg-green-600/20
+            text-green-500
+            font-medium
+            mb-6
+          "
+        >
+          Veille environnementale citoyenne
+        </div>
+
+        <h1
+          className="
+            text-4xl
+            md:text-5xl
+            font-black
+            mb-6
+          "
+        >
+          Alertes
+          <span className="block text-green-500">
+            environnementales validées
+          </span>
+        </h1>
+
+        <p
+          className="
+            text-lg
+            text-slate-400
+            leading-8
+          "
+        >
+          Consultez les signalements validés
+          transmis par les citoyens concernant
+          la pollution plastique, l'érosion
+          côtière, les déchets sauvages,
+          les inondations et d'autres enjeux
+          environnementaux au Sénégal.
+        </p>
+      </div>
 
       <AlertsList />
     </main>

@@ -1,80 +1,85 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import {
+  Phone,
+  Mail,
+  MapPin,
+} from "lucide-react";
+
 export default function Footer() {
   return (
     <footer
       className="
-      mt-24
-      border-t
-      border-slate-800
-      bg-slate-950
-    "
+        mt-24
+        border-t
+        border-custom
+        bg-card
+      "
     >
       <div
         className="
-        container mx-auto
-        px-6
-        py-16
-      "
+          container
+          mx-auto
+          px-6
+          py-16
+        "
       >
         <div
           className="
-          grid
-          md:grid-cols-3
-          gap-12
-        "
+            grid
+            grid-cols-1
+            md:grid-cols-2
+            lg:grid-cols-4
+            gap-10
+          "
         >
-          <div>
+          {/* Présentation */}
 
+          <div>
             <Image
               src="/logo.png"
               alt="EKOFUTURA"
               width={220}
               height={80}
-              style={{
-                width: "auto",
-                height: "auto",
-              }}
+              className="w-auto h-16"
             />
 
             <p
               className="
-              mt-6
-              text-slate-400
-            "
+                mt-6
+                text-slate-400
+                leading-7
+              "
             >
               Plateforme citoyenne de veille
               environnementale dédiée à la
               protection des écosystèmes
               sénégalais.
             </p>
-
           </div>
 
-          <div>
+          {/* Navigation */}
 
+          <div>
             <h3
               className="
-              text-lg
-              font-semibold
-              mb-4
-            "
+                text-lg
+                font-bold
+                mb-5
+              "
             >
               Navigation
             </h3>
 
             <div
               className="
-              flex
-              flex-col
-              gap-3
-              text-slate-400
-            "
+                flex
+                flex-col
+                gap-3
+              "
             >
-              <Link href="/">
-                Accueil
-              </Link>
+              <Link href="/">Accueil</Link>
 
               <Link href="/news">
                 Actualités
@@ -84,6 +89,10 @@ export default function Footer() {
                 Alertes
               </Link>
 
+              <Link href="/map">
+                Carte
+              </Link>
+
               <Link href="/gallery">
                 Médiathèque
               </Link>
@@ -91,30 +100,57 @@ export default function Footer() {
               <Link href="/a-propos">
                 À propos
               </Link>
-
-              <Link href="/map">
-                Carte
-              </Link>
-
-              <Link href="/partenaires">
-                Partenaires
-              </Link>
-
-              <Link href="/contact">
-                Contact
-              </Link>
             </div>
-
           </div>
 
-          <div>
+          {/* Contact */}
 
+          <div>
             <h3
               className="
-              text-lg
-              font-semibold
-              mb-4
-            "
+                text-lg
+                font-bold
+                mb-5
+              "
+            >
+              Contact
+            </h3>
+
+            <div className="space-y-4">
+
+              <div className="flex gap-3">
+                <Phone size={18} />
+                <span>
+                  +221 77 484 82 49
+                </span>
+              </div>
+
+              <div className="flex gap-3">
+                <Mail size={18} />
+                <span>
+                  contact@ekofutura.org
+                </span>
+              </div>
+
+              <div className="flex gap-3">
+                <MapPin size={18} />
+                <span>
+                  Dakar, Sénégal
+                </span>
+              </div>
+
+            </div>
+          </div>
+
+          {/* Agir */}
+
+          <div>
+            <h3
+              className="
+                text-lg
+                font-bold
+                mb-5
+              "
             >
               Agir
             </h3>
@@ -122,33 +158,37 @@ export default function Footer() {
             <Link
               href="/signaler"
               className="
-              inline-block
-              bg-green-600
-              hover:bg-green-700
-              px-5
-              py-3
-              rounded-xl
-              font-semibold
-            "
+                inline-flex
+                bg-green-600
+                hover:bg-green-700
+                px-5
+                py-3
+                rounded-xl
+                font-semibold
+                transition
+              "
             >
               Signaler un problème
             </Link>
 
+           
           </div>
 
         </div>
 
+        {/* Bas de page */}
+
         <div
           className="
-          border-t
-          border-slate-800
-          mt-12
-          pt-6
-          text-center
-          text-slate-500
-        "
+            border-t
+            border-custom
+            mt-12
+            pt-6
+            text-center
+            text-slate-500
+          "
         >
-          © 2026 EKOFUTURA • Tous droits réservés
+          © {new Date().getFullYear()} EKOFUTURA · Tous droits réservésvés
         </div>
 
       </div>

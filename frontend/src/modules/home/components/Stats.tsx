@@ -9,7 +9,11 @@ import {
   Newspaper,
 } from "lucide-react";
 
-import { getStats } from "../services/stats.service";
+import { 
+  getStats, 
+  DashboardStats, 
+} from "../services/stats.service";
+
 
 const cards = [
   {
@@ -40,7 +44,7 @@ const cards = [
 
 export default function Stats() {
   const [stats, setStats] =
-    useState<any>(null);
+    useState<DashboardStats | null>(null);
 
   useEffect(() => {
     loadStats();
@@ -128,7 +132,7 @@ export default function Stats() {
               >
                 {
                   stats[
-                    card.key
+                  card.key
                   ]
                 }
               </h3>
@@ -139,6 +143,73 @@ export default function Stats() {
             </div>
           );
         })}
+      </div>
+
+      <div className="mt-16">
+
+        <h3
+          className="
+      text-2xl
+      font-bold
+      mb-8
+      text-center
+    "
+        >
+          Répartition des alertes
+        </h3>
+
+        <div className="space-y-5">
+
+          <div>
+            <div className="flex justify-between mb-2">
+              <span>♻️ Pollution plastique</span>
+              <span>{stats.categories.plastic}</span>
+            </div>
+
+            <div className="h-3 bg-slate-800 rounded-full">
+              <div
+                className="h-3 bg-green-500 rounded-full"
+                style={{
+                  width: `${stats.categories.plastic * 20}%`,
+                }}
+              />
+            </div>
+          </div>
+
+          <div>
+            <div className="flex justify-between mb-2">
+              <span>🌊 Érosion côtière</span>
+              <span>{stats.categories.erosion}</span>
+            </div>
+
+            <div className="h-3 bg-slate-800 rounded-full">
+              <div
+                className="h-3 bg-blue-500 rounded-full"
+                style={{
+                  width: `${stats.categories.erosion * 20}%`,
+                }}
+              />
+            </div>
+          </div>
+
+          <div>
+            <div className="flex justify-between mb-2">
+              <span>🗑️ Déchets sauvages</span>
+              <span>{stats.categories.waste}</span>
+            </div>
+
+            <div className="h-3 bg-slate-800 rounded-full">
+              <div
+                className="h-3 bg-yellow-500 rounded-full"
+                style={{
+                  width: `${stats.categories.waste * 20}%`,
+                }}
+              />
+            </div>
+          </div>
+
+        </div>
+
       </div>
 
     </section>

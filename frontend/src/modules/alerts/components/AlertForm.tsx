@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createAlert } from "../services/alerts.service";
 
 export default function AlertForm() {
   const [formData, setFormData] = useState({
     fullname: "",
     phone: "",
+    email: "",
     category: "PLASTIC",
     description: "",
     latitude: 0,
@@ -22,14 +23,10 @@ export default function AlertForm() {
   const [success, setSuccess] = useState(false);
 
   const [loading, setLoading] = useState(false);
+  const [locationName, setLocationName] = useState("");
 
-  function getLocation() {
-    if (!navigator.geolocation) {
-      setMessage(
-        "La géolocalisation n'est pas supportée par votre navigateur."
-      );
-      return;
-    }
+  useEffect(() => {
+    if (!navigator.geolocation) return;
 
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -39,6 +36,54 @@ export default function AlertForm() {
           longitude: position.coords.longitude,
         }));
       },
+      () => { }
+    );
+  }, []);
+
+  async function getLocation() {
+
+    if (!navigator.geolocation) {
+      setMessage(
+        "La géolocalisation n'est pas supportée."
+      );
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+
+        const latitude =
+          position.coords.latitude;
+
+        const longitude =
+          position.coords.longitude;
+
+        setFormData((prev) => ({
+          ...prev,
+          latitude,
+          longitude,
+        }));
+
+        try {
+
+          const response =
+            await fetch(
+              `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`
+            );
+
+          const data =
+            await response.json();
+
+          setLocationName(
+            data.display_name || ""
+          );
+
+        } catch (error) {
+
+          console.error(error);
+
+        }
+      },
       () => {
         setMessage(
           "Impossible de récupérer votre position."
@@ -46,7 +91,6 @@ export default function AlertForm() {
       }
     );
   }
-
   async function handleSubmit(
     e: React.FormEvent
   ) {
@@ -67,6 +111,11 @@ export default function AlertForm() {
       data.append(
         "phone",
         formData.phone
+      );
+
+      data.append(
+        "email",
+        formData.email
       );
 
       data.append(
@@ -100,6 +149,7 @@ export default function AlertForm() {
       setFormData({
         fullname: "",
         phone: "",
+        email: "",
         category: "PLASTIC",
         description: "",
         latitude: 0,
@@ -204,6 +254,32 @@ export default function AlertForm() {
                   setFormData({
                     ...formData,
                     phone: e.target.value,
+                  })
+                }
+                className="
+                  w-full
+                  rounded-lg
+                  border
+                  border-slate-600
+                  bg-slate-900
+                  px-4
+                  py-3
+                "
+              />
+            </div>
+
+            <div>
+              <label className="block mb-2">
+                Email (optionnel)
+              </label>
+
+              <input
+                type="email"
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    email: e.target.value,
                   })
                 }
                 className="
@@ -361,13 +437,20 @@ export default function AlertForm() {
               📍 Utiliser ma position
             </button>
 
-            <div className="mt-4 text-sm text-slate-300">
-              Latitude : {formData.latitude}
-            </div>
-
-            <div className="text-sm text-slate-300">
-              Longitude : {formData.longitude}
-            </div>
+            {locationName && (
+              <div
+                className="
+                  mt-4
+                  p-4
+                  rounded-xl
+                  bg-green-600/10
+                  border
+                  border-green-600/30
+                "
+              >
+                📍 {locationName}
+              </div>
+            )}
           </div>
 
           <button

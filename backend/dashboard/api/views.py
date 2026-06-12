@@ -9,7 +9,40 @@ class DashboardStatsAPIView(APIView):
 
     def get(self, request):
 
+        categories = {
+            "plastic": Alert.objects.filter(
+                category="PLASTIC",
+                status="VALIDATED"
+            ).count(),
+
+            "erosion": Alert.objects.filter(
+                category="EROSION",
+                status="VALIDATED"
+            ).count(),
+
+            "waste": Alert.objects.filter(
+                category="WASTE",
+                status="VALIDATED"
+            ).count(),
+
+            "flood": Alert.objects.filter(
+                category="FLOOD",
+                status="VALIDATED"
+            ).count(),
+
+            "water": Alert.objects.filter(
+                category="WATER",
+                status="VALIDATED"
+            ).count(),
+
+            "air": Alert.objects.filter(
+                category="AIR",
+                status="VALIDATED"
+            ).count(),
+        }
+
         return Response({
+
             "validated_alerts":
                 Alert.objects.filter(
                     status="VALIDATED"
@@ -31,4 +64,7 @@ class DashboardStatsAPIView(APIView):
                 News.objects.filter(
                     published=True
                 ).count(),
+
+            "categories":
+                categories,
         })

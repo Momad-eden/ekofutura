@@ -45,6 +45,11 @@ urlpatterns = [
     include("contact.urls")
     ),
 
+    path(
+    "api/gallery/",
+    include("gallery.urls")
+    ),
+
 ]
 
 if settings.DEBUG:

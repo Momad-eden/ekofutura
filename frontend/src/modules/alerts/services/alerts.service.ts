@@ -12,10 +12,14 @@ export async function createAlert(
   );
 
   if (!response.ok) {
-    throw new Error(
-      "Erreur lors de la création du signalement"
-    );
-  }
+  const errorText = await response.text();
 
+  console.error(
+    "Erreur API :",
+    errorText
+  );
+
+  throw new Error(errorText);
+}
   return response.json();
 }
